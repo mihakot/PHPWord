@@ -53,7 +53,9 @@ class Table extends AbstractElement
                     $cellStyle = $rowCells[$j]->getStyle();
                     $cellBgColor = $cellStyle->getBgColor();
                     $cellFgColor = null;
-                    if ($cellBgColor) {
+                    if(strtolower($cellBgColor) === 'auto')  {
+                        $cellBgColor = 'ffffff';
+                    }else {
                         $red = hexdec(substr($cellBgColor, 0, 2));
                         $green = hexdec(substr($cellBgColor, 2, 2));
                         $blue = hexdec(substr($cellBgColor, 4, 2));
